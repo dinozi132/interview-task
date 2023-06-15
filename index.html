@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--------Font-family----------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    
+	
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" href="images/logo/logo.png" type="image/gif">
+	<title>interview task</title>
+    </head>    
+<style>
+
+  </style>
+    
+    <body>
+        <div class="navbar-section">
+<div class="row">
+<div class="L-logo">
+<img class="img-fluid" src="images/logo/logo.png">    
+</div>
+<div class=" R-icon">
+<div class="menu">
+    <input type="checkbox" id="check">
+    <label for="check" class="button-nav">
+        <span></span>
+        <span class="second-spc"></span>
+        
+    </label>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Project</a>
+        <a href="#">Contact</a>
+    </nav>
+</div>    
+</div>
+</div>    
+</div>
+    <div class="slider">
+  <div class="slide active">
+    <img class="img-fluid" src="images/h8-img-01@2x.png">
+      <h2 class="slide-title">BUILD WITH <br>NEXT GENERATION <br>OF ARCHITECT</h2>
+  </div>
+  <div class="slide next">
+    <img class="img-fluid" src="images/h8-img-01@2x.png" />
+      <h2 class="slide-title">BUILD WITH <br>NEXT GENERATION <br>OF ARCHITECT</h2>
+  </div>
+  <div class="slide">
+    <img class="img-fluid" src="images/h8-img-01@2x.png" />
+      <h2 class="slide-title">BUILD WITH <br>NEXT GENERATION <br>OF ARCHITECT</h2>
+  </div>
+  <div class="slide">
+      <img class="img-fluid" src="images/h8-img-01@2x.png" />
+      <h2 class="slide-title">BUILD WITH <br>NEXT GENERATION <br>OF ARCHITECT</h2>
+  </div>
+  <div class="slide prev">
+      <img class="img-fluid" src="images/h8-img-01@2x.png" />
+      <h2 class="slide-title">BUILD WITH <br>NEXT GENERATION <br>OF ARCHITECT</h2>
+  </div>
+  <div class="controls">
+    <a href="#" id="click-left"><img src="images/right-long-solid.svg"></a>
+    <a href="#" id="click-right"><img src="images/right-long-solid.svg"></a>
+  </div>
+</div>
+    </body>
+    
+<script>
+    let activeSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+let left = document.querySelector('#click-left');
+
+left.onclick = function() {
+  updatePrevSlide()
+}
+
+
+let right = document.querySelector('#click-right');
+
+right.onclick = function() {
+  updateNextSlide();
+}
+
+function updateNextSlide() {
+  slides[activeSlide].classList.add("prev");
+  let nextSlide = ( activeSlide < slides.length -1) ? activeSlide+1 : 0; 
+  slides[nextSlide].classList.remove("prev");
+  slides[nextSlide].classList.remove("next");
+  slides[nextSlide].classList.add("active");
+  
+  if(nextSlide < slides.length -1){
+    slides[nextSlide+1].classList.add("next");
+    slides[nextSlide+1].classList.remove("prev");
+  }  
+  else {
+    slides[0].classList.remove("prev");
+    slides[0].classList.add("next");
+  }
+  activeSlide = nextSlide;
+}
+
+
+function updatePrevSlide() {
+  slides[activeSlide].classList.add("next");
+  let prevSlide = ( activeSlide > 0) ? activeSlide-1 : slides.length-1; 
+  slides[prevSlide].classList.remove("next");
+  slides[prevSlide].classList.remove("prev");
+  slides[prevSlide].classList.add("active");
+  
+  if(prevSlide > 0){
+     slides[prevSlide-1].classList.add("prev");
+    slides[prevSlide-1].classList.remove("next");
+  }
+  else {
+     slides[slides.length-1].classList.remove("next");
+    slides[slides.length-1].classList.add("prev");   
+  }
+  
+  activeSlide = prevSlide;
+}
+    </script>   
+</html>
